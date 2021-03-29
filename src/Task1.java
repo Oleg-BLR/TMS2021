@@ -9,6 +9,6 @@ public class Task1 {
                 count +=1;
             }
         }
-            System.out.println("Kolichestvo polozhitelnyh chisel = " +count); //что сделать, чтобы выводилась кириллица?
+            System.out.println("Kolichestvo polozhitelnyh chisel = " +count);  //что сделать, чтобы выводилась кириллица?
     }
 }
