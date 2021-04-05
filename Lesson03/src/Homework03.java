@@ -27,12 +27,16 @@ public class Homework03 {
         countDevs(1011);
         countDevs(1021);
         countDevs(1004);
-
-
-
-//        foobar(6);
-//        foobar(10);
-//        foobar(15);
+        countDevs(121);
+        countDevs(124);
+        countDevs(125);
+        System.out.println();
+        System.out.println("Задача про foobar (деление на 3 и на 5)");
+        foobar(6);
+        foobar(10);
+        foobar(15);
+        foobar(17);
+        foobar(22);
 //        printMatrix();
 //        printPrimeNumbers();
     }
@@ -148,27 +152,34 @@ public class Homework03 {
                 } else {
                     System.out.println(count + " программистов");
                 }
-//            if (count % 10 = 1) {
-//                System.out.println(count + " программиста");
-//            } else {
-//                System.out.println(count + " программистов");
-//            }
-//        }
             }
         }
     }
 
 
-//        /**
-//         * Метод должен выводить разные строки в консоли в зависимости от некоторых условий:
-//         * - если остаток от деления на 3 равен нулю - выведите "foo" (example of number - 6)
-//         * - если остаток от деления на 5 равен нулю - вывести "bar" (example of number - 10)
-//         * - если остаток от деления на 3 и 5 равен нулю 0 ,то вывести "foobar" (example of number - 15)
-//         */
-//        public static void foobar ( int number){
-//            // тут пишем логику
-//        }
-//
+        /**
+         * Метод должен выводить разные строки в консоли в зависимости от некоторых условий:
+         * - если остаток от деления на 3 равен нулю - выведите "foo" (example of number - 6)
+         * - если остаток от деления на 5 равен нулю - вывести "bar" (example of number - 10)
+         * - если остаток от деления на 3 и 5 равен нулю 0 ,то вывести "foobar" (example of number - 15)
+         */
+        public static void foobar(int number) {
+            System.out.print(number);
+            if (number % 3 == 0 && number % 5 == 0) {
+                System.out.println(" - foobar");
+            } else {
+                if (number % 3 == 0) {
+                    System.out.println(" - foo");
+                } else {
+                    if (number % 5 == 0) {
+                        System.out.println(" - foo");
+                    } else {
+                        System.out.println(" - не делится без остатка ни на 3, ни на 5");
+                    }
+                }
+            }
+        }
+
 //        /**
 //         * заполнить рандомно 2-х мерный массив и посчитать сумму элементов на диагонали
 //         */
