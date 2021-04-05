@@ -11,7 +11,6 @@ public class Homework03 {
         System.out.println();
         System.out.println("Задача про количество нечетных элементов массива");
         System.out.println(" - Количество нечетных элементов массива " + calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 6}));
-//        calculateSumOfDiagonalElements();
         System.out.println();
         System.out.println("Задача про склонение программистов");
         countDevs(103);
@@ -37,7 +36,12 @@ public class Homework03 {
         foobar(15);
         foobar(17);
         foobar(22);
-//        printMatrix();
+        System.out.println();
+        System.out.println("Задача про сумму диагональных элементов матрицы");
+        calculateSumOfDiagonalElements();
+        System.out.println();
+        System.out.println("Задача про замену элементов матрицы");
+        printMatrix();
 //        printPrimeNumbers();
     }
 
@@ -157,63 +161,120 @@ public class Homework03 {
     }
 
 
-        /**
-         * Метод должен выводить разные строки в консоли в зависимости от некоторых условий:
-         * - если остаток от деления на 3 равен нулю - выведите "foo" (example of number - 6)
-         * - если остаток от деления на 5 равен нулю - вывести "bar" (example of number - 10)
-         * - если остаток от деления на 3 и 5 равен нулю 0 ,то вывести "foobar" (example of number - 15)
-         */
-        public static void foobar(int number) {
-            System.out.print(number);
-            if (number % 3 == 0 && number % 5 == 0) {
-                System.out.println(" - foobar");
+    /**
+     * Метод должен выводить разные строки в консоли в зависимости от некоторых условий:
+     * - если остаток от деления на 3 равен нулю - выведите "foo" (example of number - 6)
+     * - если остаток от деления на 5 равен нулю - вывести "bar" (example of number - 10)
+     * - если остаток от деления на 3 и 5 равен нулю 0 ,то вывести "foobar" (example of number - 15)
+     */
+    public static void foobar(int number) {
+        System.out.print(number);
+        if (number % 3 == 0 && number % 5 == 0) {
+            System.out.println(" - foobar");
+        } else {
+            if (number % 3 == 0) {
+                System.out.println(" - foo");
             } else {
-                if (number % 3 == 0) {
+                if (number % 5 == 0) {
                     System.out.println(" - foo");
                 } else {
-                    if (number % 5 == 0) {
-                        System.out.println(" - foo");
-                    } else {
-                        System.out.println(" - не делится без остатка ни на 3, ни на 5");
-                    }
+                    System.out.println(" - не делится без остатка ни на 3, ни на 5");
                 }
             }
         }
+    }
 
-//        /**
-//         * заполнить рандомно 2-х мерный массив и посчитать сумму элементов на диагонали
-//         */
-//        public static void calculateSumOfDiagonalElements () {
-//            //пишем логику и выводим результат используя System.out.println
-//        }
-//
-//
-//        /**
-//         * Шаги по реализации:
-//         * - Прочитать два int из консоли
-//         * - Создайте двумерный массив int (используйте целые числа, которые вы читаете по высоте и ширине консоли)
-//         * - Заполнить массив случайными значениями (до 100)
-//         * - Вывести в консоль матрицу заданного размера, но:
-//         * - Если остаток от деления элемента массива на 3 равен нулю - выведите знак "+" вместо значения элемента массива.
-//         * - Если остаток от деления элемента массива на 7 равен нулю - выведите знак "-" вместо значения элемента массива.
-//         * - В противном случае выведите "*"
-//         * <p>
-//         * Example:
-//         * - Значения с консоли - 2 и 3
-//         * - Массив будет выглядеть так (значения будут разными, потому что он случайный)
-//         * 6 11 123
-//         * 1 14 21
-//         * - Для этого значения вывод в консоли должен быть:
-//         * <p>
-//         * + * *
-//         * * - +
-//         * <p>
-//         * Обратите внимание, что 21% 3 == 0 и 21% 7 = 0, но выводить надо не +-, а +
-//         */
-//        public static void printMatrix () {
-//            // тут пишем логику
-//        }
-//
+    /**
+     * заполнить рандомно 2-х мерный массив и посчитать сумму элементов на диагонали
+     */
+    public static void calculateSumOfDiagonalElements() {
+        Scanner scan = new Scanner(System.in);
+        Random rand = new Random();
+        System.out.println("Введите количество строк массива:"); // по идее матрица должна быть квадратная n=m
+        int n = scan.nextInt();
+        System.out.println("Введите количество столбцов массива:");
+        int m = scan.nextInt();
+        System.out.println();
+        Integer arr[][] = new Integer[n][m];
+        for (int i = 0; i < n; i++) {
+            System.out.println();
+            for (int j = 0; j < m; j++) {
+                arr[i][j] = rand.nextInt(100);
+                System.out.print(arr[i][j] + " ");
+            }
+        }
+        System.out.println();
+        int sumDiag = 0;
+        if (n > m) {
+            for (int i = 0; i < m; i++) {
+                sumDiag += arr[i][i];
+            }
+        } else {
+            for (int i = 0; i < n; i++) {
+                sumDiag += arr[i][i];
+            }
+        }
+        System.out.println("Сумма диагональных элементов матрицы = " + sumDiag);
+    }
+
+
+        /**
+         * Шаги по реализации:
+         * - Прочитать два int из консоли
+         * - Создайте двумерный массив int (используйте целые числа, которые вы читаете по высоте и ширине консоли)
+         * - Заполнить массив случайными значениями (до 100)
+         * - Вывести в консоль матрицу заданного размера, но:
+         * - Если остаток от деления элемента массива на 3 равен нулю - выведите знак "+" вместо значения элемента массива.
+         * - Если остаток от деления элемента массива на 7 равен нулю - выведите знак "-" вместо значения элемента массива.
+         * - В противном случае выведите "*"
+         * <p>
+         * Example:
+         * - Значения с консоли - 2 и 3
+         * - Массив будет выглядеть так (значения будут разными, потому что он случайный)
+         * 6 11 123
+         * 1 14 21
+         * - Для этого значения вывод в консоли должен быть:
+         * <p>
+         * + * *
+         * * - +
+         * <p>
+         * Обратите внимание, что 21% 3 == 0 и 21% 7 = 0, но выводить надо не +-, а +
+         */
+        public static void printMatrix () {
+            Scanner scan = new Scanner(System.in);
+            Random rand = new Random();
+            System.out.println("Введите количество строк массива:");
+            int n = scan.nextInt();
+            System.out.println("Введите количество столбцов массива:");
+            int m = scan.nextInt();
+            System.out.println();
+            Integer arr[][] = new Integer[n][m];
+            System.out.println("Исходная матрица случайных значений");
+            for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < m; j++) {
+                    arr[i][j] = rand.nextInt(22);
+                    System.out.print(arr[i][j] + " ");
+                }
+                System.out.println();
+            }
+            System.out.println();
+            System.out.println("Модифицированная матрица");
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    if (arr[i][j] % 3 == 0) {
+                        System.out.print("+ ");
+                    } else {
+                        if (arr[i][j] % 7 == 0) {
+                            System.out.print("- ");
+                        } else {
+                            System.out.print("* ");
+                        }
+                    }
+                }
+                System.out.println();
+            }
+        }
+
 //        /**
 //         * Задача со звездочкой!
 //         * Метод должен печатать все простые числа <1000
@@ -222,4 +283,4 @@ public class Homework03 {
 //        public static void printPrimeNumbers () {
 //            // тут пишем логику
 //        }
-}
+    }
