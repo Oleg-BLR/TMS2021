@@ -8,9 +8,28 @@ public class Homework03 {
         printArray();
         System.out.println(operation(1));
         System.out.println(operation(0));
-//        System.out.println(calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 6}));
+        System.out.println();
+        System.out.println("Задача про количество нечетных элементов массива");
+        System.out.println(" - Количество нечетных элементов массива " + calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 6}));
 //        calculateSumOfDiagonalElements();
-//        countDevs(103);
+        System.out.println();
+        System.out.println("Задача про склонение программистов");
+        countDevs(103);
+        countDevs(20);
+        countDevs(21);
+        countDevs(55);
+        countDevs(11);
+        countDevs(9);
+        countDevs(2);
+        countDevs(1);
+        countDevs(111);
+        countDevs(1001);
+        countDevs(1011);
+        countDevs(1021);
+        countDevs(1004);
+
+
+
 //        foobar(6);
 //        foobar(10);
 //        foobar(15);
@@ -78,28 +97,68 @@ public class Homework03 {
         return number;
     }
 
-//        /**
-//         * На вход приходит массив целых чисел типа int
-//         * Необходимо найти количество нечетных элементов в массиве и вернуть значение в метод main,
-//         * в котором это значение распечатается на консоль.
-//         */
-//        public static int calculateCountOfOddElementsInMatrix ( int[] ints){
-//            // тут пишем логику
-//            return 0;
+    /**
+     * На вход приходит массив целых чисел типа int
+     * Необходимо найти количество нечетных элементов в массиве и вернуть значение в метод main,
+     * в котором это значение распечатается на консоль.
+     */
+    public static int calculateCountOfOddElementsInMatrix(int[] ints) {
+        for (int i : ints) {
+            System.out.print(i + " ");
+        }
+        int count = 0;
+        for (int i : ints) {
+            if (i % 2 != 0) {
+                ++count;
+            }
+        }
+        return count;
+    }
+
+    /**
+     * На вход приходит число.
+     * Вывести в консоль фразу из разряда "_COUNT_ программистов",
+     * заменить _COUNT_ на число которое пришло на вход в метод и заменить окончание в слове "программистов" на
+     * уместное с точки зрения русского языка.
+     * Пример: 1 программист, 42 программиста, 50 программистов
+     *
+     * @param count - количество программистов
+     */
+    public static void countDevs(int count) {
+//        Scanner scan = new Scanner(System.in);
+//        System.out.println("Введите целое положительное число:");
+//        count = scan.nextInt();
+//        System.out.println();
+        if (count % 100 > 20) {
+            if (count % 10 == 1) {
+                System.out.println(count + " программист");
+            } else {
+                if (count % 10 == 2 || count % 10 == 3 || count % 10 == 4) {
+                    System.out.println(count + " программиста");
+                } else {
+                    System.out.println(count + " программистов");
+                }
+            }
+        } else {
+            if (count % 100 == 1) {
+                System.out.println(count + " программист");
+            } else {
+                if (count % 10 == 2 || count % 10 == 3 || count % 10 == 4) {
+                    System.out.println(count + " программиста");
+                } else {
+                    System.out.println(count + " программистов");
+                }
+//            if (count % 10 = 1) {
+//                System.out.println(count + " программиста");
+//            } else {
+//                System.out.println(count + " программистов");
+//            }
 //        }
-//
-//        /**
-//         * На вход приходит число.
-//         * Вывести в консоль фразу из разряда "_COUNT_ программистов",
-//         * заменить _COUNT_ на число которое пришло на вход в метод и заменить окончание в слове "программистов" на
-//         * уместное с точки зрения русского языка.
-//         * Пример: 1 программист, 42 программиста, 50 программистов
-//         * @param count - количество программистов
-//         */
-//        public static void countDevs ( int count){
-//            // тут пишем логику
-//        }
-//
+            }
+        }
+    }
+
+
 //        /**
 //         * Метод должен выводить разные строки в консоли в зависимости от некоторых условий:
 //         * - если остаток от деления на 3 равен нулю - выведите "foo" (example of number - 6)
