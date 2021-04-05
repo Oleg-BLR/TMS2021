@@ -6,8 +6,8 @@ public class Homework03 {
     public static void main(String[] args) {
         //Некоторые тесты для проверки задач. Можно также написать свои тесты.
         printArray();
-//        System.out.println(operation(1));
-//        System.out.println(operation(0));
+        System.out.println(operation(1));
+        System.out.println(operation(0));
 //        System.out.println(calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 6}));
 //        calculateSumOfDiagonalElements();
 //        countDevs(103);
@@ -43,18 +43,41 @@ public class Homework03 {
         }
     }
 
-//        /**
-//         * Метод должен выполнять некоторую операцию с int "number" в зависимости от некоторых условий:
-//         * - if number положительное число, то необходимо number увеличить на 1
-//         * - if number отрицательное - уменьшить на 2
-//         * - if number равно 0 , то замените значение number на 10
-//         * вернуть number после выполнения операций
-//         */
-//        public static int operation ( int number){
-//            // тут пишем логику
-//            return 0;
-//        }
-//
+    /**
+     * Метод должен выполнять некоторую операцию с int "number" в зависимости от некоторых условий:
+     * - if number положительное число, то необходимо number увеличить на 1
+     * - if number отрицательное - уменьшить на 2
+     * - if number равно 0 , то замените значение number на 10
+     * вернуть number после выполнения операций
+     */
+    public static int operation(int number) {
+        System.out.println();
+        System.out.println();
+        System.out.println("Введите целое число");
+        Scanner scan = new Scanner(System.in);
+        number = scan.nextInt();
+        if (number > 0) {
+            ++number;
+        } else {
+            if (number < 0) {
+                --number;
+            } else {
+                number = 10;
+            }                           // Почему-то программа не останавливается, два раза просит ввести число.
+        }
+//        switch (number) {             //  почему-то со switch case не получилось. Почему?
+//            case (number > 0):
+//                ++number;
+//                break;
+//            case (number < 0):
+//                --number;
+//                break;
+//            case (number == 0):
+//                number = 10;
+//                break;
+        return number;
+    }
+
 //        /**
 //         * На вход приходит массив целых чисел типа int
 //         * Необходимо найти количество нечетных элементов в массиве и вернуть значение в метод main,
