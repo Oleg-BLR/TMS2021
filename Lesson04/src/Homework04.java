@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Homework04 {
@@ -118,15 +120,23 @@ public class Homework04 {
 //        5) Создайте массив из всех нечётных чисел от 1 до 100, выведите его на экран в строку,
 //        а затем этот же массив выведите на экран тоже в строку, но в обратном порядке (99 97 95 93 ... 7 5 3 1).
 
+        reverseOddsArray();
+
 //        6) Создайте массив из int[] mass = new int[12]; Рандомно заполните его значениями от 0 до 15.
 //        Определите какой элемент является в этом массиве максимальным и сообщите индекс его последнего вхождения в массив.
 //        Пример: {3,4,5,62,7,8,4,-5,7,62,5,1} Максимальный элемент 62, индекс его последнего вхождения в массив = 10
+
+        maxElementAndIndex();
 
 //        7) Создайте массив размера 20, заполните его случайными целыми чиселами из отрезка от 0 до 20.
 //        Выведите массив на экран в строку. Замените каждый элемент с нечётным индексом на ноль.
 //        Снова выведете массив на экран на отдельной строке.
 
+        oddIndexConvertToZero();
+
 //        8) Найти максимальный элемент в массиве {4,5,0,23,77,0,8,9,101,2} и поменять его местами с нулевым элементом
+
+        maxZeroExchange();
 
 //        9) Проверить, различны ли все элементы массива, если не различны то вывести элемент повторяющийся
 //        Пример: {0,3,46,3,2,1,2}
@@ -144,6 +154,100 @@ public class Homework04 {
 //          1 5 6 7      4 9 5 7
 
 }
+
+    private static void maxZeroExchange() {
+        System.out.println();
+        System.out.println("Задача 8");
+        int arr[] = {4, 5, 0, 23, 77, 0, 8, 9, 101, 2};
+        for (int i = 0; i < arr.length; i++) {
+            System.out.printf("%4d",arr[i]);
+        }
+        System.out.println();
+
+            int max = Integer.MIN_VALUE;
+        int iMax = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+                iMax = i;
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 0) {
+                arr[i] = max;
+            }
+        }
+            arr[iMax] = 0;
+        for (int i = 0; i < arr.length; i++) {
+            System.out.printf("%4d",arr[i]);
+        }
+
+    }
+
+    private static void oddIndexConvertToZero() {
+        System.out.println();
+        System.out.println("Задача 7");
+        int[] arr = new int[20];
+        Random rand = new Random();
+        System.out.printf("%33s","Индексы элементов матрицы");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = rand.nextInt(21);
+            System.out.printf("%4d",i);
+        }
+        System.out.println();
+        System.out.printf("%33s","Элементы исходной матрицы");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = rand.nextInt(21);
+            System.out.printf("%4d",arr[i]);
+        }
+        System.out.println();
+        System.out.printf("%33s","Элементы модифицированной матрицы");
+        for (int i = 0; i < arr.length; i++) {
+            if (i % 2 !=0){
+                arr[i] = 0;
+//                System.out.print(arr[i] + ", ");
+            }
+            System.out.printf("%4d",arr[i]);
+        }
+        System.out.println();
+    }
+
+    private static void maxElementAndIndex() {
+        System.out.println();
+        System.out.println("Задача 6");
+        int[] arr = new int[12];
+        Random rand = new Random();
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = rand.nextInt(16);
+            System.out.print(arr[i] + ", ");
+        }
+        System.out.println();
+        int max = Integer.MIN_VALUE;
+        int indexMax = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max){
+                max = arr[i];
+                indexMax = i;
+            }
+        }
+        System.out.println("Максимальный элемент - " + max);
+        System.out.println("Индекс максимального элемента - " + indexMax);
+    }
+
+    private static void reverseOddsArray() {
+        System.out.println();
+        System.out.println("Задача 5");
+        ArrayList<Integer> oddsArray = new ArrayList<>();
+        ArrayList<Integer> reverseOddsArray = new ArrayList<>();
+        for (int i = 1; i < 100; i+=2){
+            oddsArray.add(i);
+        }
+        System.out.println(oddsArray);
+        for(int i = oddsArray.size() - 1; i >= 0; i--){
+            reverseOddsArray.add(oddsArray.get(i));
+        }
+        System.out.println(reverseOddsArray);
+    }
 
     private static void task04() {
         System.out.println();
