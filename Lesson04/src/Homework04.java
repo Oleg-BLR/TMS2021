@@ -1,13 +1,18 @@
+import java.util.Scanner;
+
 public class Homework04 {
     public static void main(String[] args) {
 
         System.out.println(summ(4, 3));
         System.out.println(summ(10, 12));
         System.out.println();
+        task04 ();
 
 //        Задачи:
 //         1) Одноклеточная амеба каждые 3 часа делится на 2 клетки. Определить,
 //   сколько амеб будет через 3, 6, 9, 12,..., 24 часа
+        System.out.println();
+        System.out.println("Задача 1");
         int cells = 1;
         int hours = 0;
         while (hours <= 24) {
@@ -48,6 +53,63 @@ public class Homework04 {
 //            * *        * *
 //              *        *
 
+        String arr[][] = new String[4][4];
+        System.out.println();
+        System.out.println("Задача 3-а)");
+        for (int i = 0; i < arr.length; i++){
+            for (int j = 0; j < arr[i].length; j++){
+                if (i + j < arr.length - 1) {
+                    arr [i][j] = " ";
+                } else {
+                    arr [i][j] = "*";
+                }
+                System.out.print(arr[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println("Задача 3-б)");
+        for (int i = 0; i < arr.length; i++){
+            for (int j = 0; j < arr[i].length; j++){
+                if (i >= j) {
+                    arr [i][j] = "*";
+                } else {
+                    arr [i][j] = " ";
+                }
+                System.out.print(arr[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println("Задача 3-c)");
+        for (int i = 0; i < arr.length; i++){
+            for (int j = 0; j < arr[i].length; j++){
+                if (i <= j) {
+                    arr [i][j] = "*";
+                } else {
+                    arr [i][j] = " ";
+                }
+                System.out.print(arr[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println("Задача 3-d)");
+        for (int i = 0; i < arr.length; i++){
+            for (int j = 0; j < arr[i].length; j++){
+                if (i + j > arr.length - 1) {
+                    arr [i][j] = " ";
+                } else {
+                    arr [i][j] = "*";
+                }
+                System.out.print(arr[i][j]);
+            }
+            System.out.println();
+        }
+
+
+
+
 //        4)В переменную записываем число.
 //        Надо вывести на экран сколько в этом числе цифр и положительное оно или отрицательное.
 //        Например, Введите число: 5
@@ -83,7 +145,39 @@ public class Homework04 {
 
 }
 
+    private static void task04() {
+        System.out.println();
+        System.out.println("Задача 4:");
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Введите целое число:");
+//        n = scan.nextInt();
+        long n = scan.nextInt();
+//        long n = -623598;
+        float div;
+        int divider = 10;
+        int digit = 0;
+        String posOrNeg;
+
+        if (n == 0) {
+            posOrNeg = ",";
+        } else {
+            if (n > 0) {
+                posOrNeg = " - это положительное число,";
+            } else {
+                posOrNeg = " - это отрицательное число,";
+            }
+        }
+        do {
+            div = n / divider;
+            divider *= 10;
+            digit++;
+        } while (Math.abs(div) >= 1);
+        System.out.println(n + posOrNeg + " количество цифр = " + digit);
+    }
+
     private static int summ(int n, int m) {
+        System.out.println();
+        System.out.println("Задача 2");
         int mult = 0;
         for (int i = 0; i < m; i++) {
             mult += n;
