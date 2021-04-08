@@ -8,7 +8,7 @@ public class Homework04 {
         System.out.println(summ(4, 3));
         System.out.println(summ(10, 12));
         System.out.println();
-        task04 ();
+        task04();
 
 //        Задачи:
 //         1) Одноклеточная амеба каждые 3 часа делится на 2 клетки. Определить,
@@ -58,12 +58,12 @@ public class Homework04 {
         String arr[][] = new String[4][4];
         System.out.println();
         System.out.println("Задача 3-а)");
-        for (int i = 0; i < arr.length; i++){
-            for (int j = 0; j < arr[i].length; j++){
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
                 if (i + j < arr.length - 1) {
-                    arr [i][j] = " ";
+                    arr[i][j] = " ";
                 } else {
-                    arr [i][j] = "*";
+                    arr[i][j] = "*";
                 }
                 System.out.print(arr[i][j]);
             }
@@ -71,12 +71,12 @@ public class Homework04 {
         }
         System.out.println();
         System.out.println("Задача 3-б)");
-        for (int i = 0; i < arr.length; i++){
-            for (int j = 0; j < arr[i].length; j++){
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
                 if (i >= j) {
-                    arr [i][j] = "*";
+                    arr[i][j] = "*";
                 } else {
-                    arr [i][j] = " ";
+                    arr[i][j] = " ";
                 }
                 System.out.print(arr[i][j]);
             }
@@ -84,12 +84,12 @@ public class Homework04 {
         }
         System.out.println();
         System.out.println("Задача 3-c)");
-        for (int i = 0; i < arr.length; i++){
-            for (int j = 0; j < arr[i].length; j++){
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
                 if (i <= j) {
-                    arr [i][j] = "*";
+                    arr[i][j] = "*";
                 } else {
-                    arr [i][j] = " ";
+                    arr[i][j] = " ";
                 }
                 System.out.print(arr[i][j]);
             }
@@ -97,19 +97,17 @@ public class Homework04 {
         }
         System.out.println();
         System.out.println("Задача 3-d)");
-        for (int i = 0; i < arr.length; i++){
-            for (int j = 0; j < arr[i].length; j++){
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
                 if (i + j > arr.length - 1) {
-                    arr [i][j] = " ";
+                    arr[i][j] = " ";
                 } else {
-                    arr [i][j] = "*";
+                    arr[i][j] = "*";
                 }
                 System.out.print(arr[i][j]);
             }
             System.out.println();
         }
-
-
 
 
 //        4)В переменную записываем число.
@@ -144,6 +142,9 @@ public class Homework04 {
 //        Пример: {0,34,46,31,20,1,28}
 //        Массив не имеет повторяющихся элементов
 
+        repeatedElements(); //Задача решена не полностью. В случае повтора числа 3 раза и более будет выводить
+                            // это число 3-1 и более раз.
+
 //        10) Создаём квадратную матрицу, размер вводим с клавиатуры.
 //        Заполняем случайными числами в диапазоне от 0 до 50. И выводим на консоль(в виде матрицы).
 //        Далее необходимо транспонировать матрицу(1 столбец станет 1-й строкой, 2-й столбец - 2-й строкой и т. д.)
@@ -153,18 +154,79 @@ public class Homework04 {
 //          3 3 4 5      3 8 4 6
 //          1 5 6 7      4 9 5 7
 
-}
+        transpon();
+
+    }
+
+    private static void transpon() {
+        System.out.println();
+        System.out.println("Задача 10");
+        Scanner scan = new Scanner(System.in);
+        Random rand = new Random();
+        System.out.println("Введите размер матрицы:");
+        int n = scan.nextInt();
+        System.out.println();
+        Integer arr[][] = new Integer[n][n];
+        System.out.println();
+        System.out.println("Исходная матрица:");
+        for (int i = 0; i < n; i++) {
+            System.out.println();
+            for (int j = 0; j < n; j++) {
+                arr[i][j] = rand.nextInt(51);
+                System.out.printf("%3d", arr[i][j]);
+            }
+        }
+        System.out.println();
+        Integer transArr[][] = new Integer[n][n];
+        System.out.println();
+        System.out.println("Транспонированная матрица:");
+        for (int i = 0; i < n; i++) {
+            System.out.println();
+            for (int j = 0; j < n; j++) {
+                transArr[i][j] = arr [j][i];
+                System.out.printf("%3d", transArr[i][j]);
+            }
+        }
+
+    }
+
+    private static void repeatedElements() {
+        System.out.println();
+        System.out.println("Задача 9");
+        int arr[] = {0, 3, 3, 46, 3, 2, 1, 2};
+        int count = 0;
+        int countRepRep = 0;
+        ArrayList<Integer> repeatedArr = new ArrayList<>();
+
+        for (int i = 0; i < arr.length; i++) {
+                for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    repeatedArr.add(arr[i]);
+                    count++;
+                    break;
+//                    repeatedArr.add(oddsArray.get(i));
+                }
+            }
+        }
+        if (count != 0) {
+//        System.out.printf("%33s","Индексы элементов матрицы");
+            System.out.printf("Повторяющиеся элементы матрицы arr: ");
+            System.out.println(repeatedArr);
+        }else {
+            System.out.printf("Повторяющихся элементов в матрице arr нет");
+        }
+    }
 
     private static void maxZeroExchange() {
         System.out.println();
         System.out.println("Задача 8");
         int arr[] = {4, 5, 0, 23, 77, 0, 8, 9, 101, 2};
         for (int i = 0; i < arr.length; i++) {
-            System.out.printf("%4d",arr[i]);
+            System.out.printf("%4d", arr[i]);
         }
         System.out.println();
 
-            int max = Integer.MIN_VALUE;
+        int max = Integer.MIN_VALUE;
         int iMax = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > max) {
@@ -177,11 +239,11 @@ public class Homework04 {
                 arr[i] = max;
             }
         }
-            arr[iMax] = 0;
+        arr[iMax] = 0;
         for (int i = 0; i < arr.length; i++) {
-            System.out.printf("%4d",arr[i]);
+            System.out.printf("%4d", arr[i]);
         }
-
+        System.out.println();
     }
 
     private static void oddIndexConvertToZero() {
@@ -189,25 +251,25 @@ public class Homework04 {
         System.out.println("Задача 7");
         int[] arr = new int[20];
         Random rand = new Random();
-        System.out.printf("%33s","Индексы элементов матрицы");
+        System.out.printf("%33s", "Индексы элементов матрицы");
         for (int i = 0; i < arr.length; i++) {
             arr[i] = rand.nextInt(21);
-            System.out.printf("%4d",i);
+            System.out.printf("%4d", i);
         }
         System.out.println();
-        System.out.printf("%33s","Элементы исходной матрицы");
+        System.out.printf("%33s", "Элементы исходной матрицы");
         for (int i = 0; i < arr.length; i++) {
             arr[i] = rand.nextInt(21);
-            System.out.printf("%4d",arr[i]);
+            System.out.printf("%4d", arr[i]);
         }
         System.out.println();
-        System.out.printf("%33s","Элементы модифицированной матрицы");
+        System.out.printf("%33s", "Элементы модифицированной матрицы");
         for (int i = 0; i < arr.length; i++) {
-            if (i % 2 !=0){
+            if (i % 2 != 0) {
                 arr[i] = 0;
 //                System.out.print(arr[i] + ", ");
             }
-            System.out.printf("%4d",arr[i]);
+            System.out.printf("%4d", arr[i]);
         }
         System.out.println();
     }
@@ -225,7 +287,7 @@ public class Homework04 {
         int max = Integer.MIN_VALUE;
         int indexMax = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > max){
+            if (arr[i] > max) {
                 max = arr[i];
                 indexMax = i;
             }
@@ -239,11 +301,11 @@ public class Homework04 {
         System.out.println("Задача 5");
         ArrayList<Integer> oddsArray = new ArrayList<>();
         ArrayList<Integer> reverseOddsArray = new ArrayList<>();
-        for (int i = 1; i < 100; i+=2){
+        for (int i = 1; i < 100; i += 2) {
             oddsArray.add(i);
         }
         System.out.println(oddsArray);
-        for(int i = oddsArray.size() - 1; i >= 0; i--){
+        for (int i = oddsArray.size() - 1; i >= 0; i--) {
             reverseOddsArray.add(oddsArray.get(i));
         }
         System.out.println(reverseOddsArray);
