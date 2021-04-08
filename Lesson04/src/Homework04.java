@@ -155,7 +155,6 @@ public class Homework04 {
 //          1 5 6 7      4 9 5 7
 
         transpon();
-
     }
 
     private static void transpon() {
