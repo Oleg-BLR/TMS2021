@@ -1,22 +1,27 @@
 package com.home.homework6;
 
 public class Person {
-    private String name;
+//    public String infoPerson;
+//    public String infoPerson;
+private String name;
     private int age;
     private String sex;
     private Address address;
+    private int number;
     public static int count = 0;
 
-    public Person(String name, int age, String sex, Address address) {
+    public Person(String name, int age, String sex, Address address, int number) {
         this.name = name;
         this.age = age;
         this.sex = sex;
         this.address = address;
+        this.number = number;
         count++;
     }
 
-    public Person(String name) {
+    public Person(String name, int number) {
         this.name = name;
+        this.number = number;
         count++;
     }
 
@@ -54,12 +59,15 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Запись №" + count + " {" +
-                "Имя='" + name + '\'' +
-                ", Возраст=" + age +
-                ", пол='" + sex + '\'' +
-                ", адрес=" + address +
-                '}';
+        return //"Запись №" + count + //
+                " {" +
+                        "Имя='" + name + '\'' +
+                        ", Возраст=" + age +
+                        ", пол='" + sex + '\'' +
+                        ", адрес=" + address +
+                        ", номер регистрации=" +
+                        number +
+                        '}';
     }
 
     public String infoPerson() {   // почему то не видит этот метод
