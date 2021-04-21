@@ -2,7 +2,7 @@ class Ground extends Transport {
     private int weelsNumber; // units
     private int fuelConsumption; // l/100km
 
-    public Ground(int horsePower, int velocityMax, int mass, String brand,
+    public Ground(int horsePower, int velocityMax, double mass, String brand,
                   int weelsNumber, int fuelConsumption) {
 
         super(horsePower, velocityMax, mass, brand);
@@ -12,6 +12,6 @@ class Ground extends Transport {
 
     public void displayInfo() {
         super.displayInfo();
-        System.out.println("Кол-во колес, шт: " + weelsNumber + "Расход топлива, л/100км: " + fuelConsumption);
+        System.out.println("; Кол-во колес, шт: " + weelsNumber + "; Расход топлива, л/100км: " + fuelConsumption);
     }
 }

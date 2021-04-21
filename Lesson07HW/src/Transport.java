@@ -1,10 +1,10 @@
 public class Transport {
     private int horsePower; // horsepower
     private int velocityMax; // km/hour
-    private int mass; // ton
+    private double mass; // ton
     private String brand;
 
-    public Transport(int horsePower, int velocityMax, int mass, String brand) {
+    public Transport(int horsePower, int velocityMax, double mass, String brand) {
         this.horsePower = horsePower;
         this.velocityMax = velocityMax;
         this.mass = mass;
@@ -27,11 +27,11 @@ public class Transport {
         this.velocityMax = velocityMax;
     }
 
-    public int getMass() {
+    public double getMass() {
         return mass;
     }
 
-    public void setMass(int mass) {
+    public void setMass(double mass) {
         this.mass = mass;
     }
 
@@ -53,8 +53,16 @@ public class Transport {
                 '}';
     }
 
+
     public void displayInfo() {
-        System.out.println("Марка: " + brand + "Масса, т: " + mass +
-                "Максимальная скорость, км/ч: " + velocityMax + "Мощность, л.с.: " + horsePower);
+        System.out.print("; Марка: " + brand + "; Масса, т: " + mass +
+                "; Максимальная скорость, км/ч: " + velocityMax + "; Мощность, л.с.: " + horsePower);
     }
+
+//    public void displayInfo2() {
+//        System.out.print("; Марка: " + brand + "; Масса, т: " + mass +
+//                "; Максимальная скорость, км/ч: " + velocityMax + "; Мощность, л.с.: " + horsePower);
+//    }
+
+
 }

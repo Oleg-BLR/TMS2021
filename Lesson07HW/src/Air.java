@@ -12,6 +12,6 @@ class Air extends Transport {
 
     public void displayInfo() {
         super.displayInfo();
-        System.out.println("Размах крыльев, м: " + wingSpan + "Длина взлетной полосы, км: " + runwayLength);
+        System.out.println("; Размах крыльев, м: " + wingSpan + "; Длина взлетной полосы, км: " + runwayLength);
     }
 }
