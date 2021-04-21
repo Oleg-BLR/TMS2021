@@ -38,8 +38,8 @@ class Car extends Ground {
 
     public static void distanceFuelconsumptionCalculation(int hourInput) { //
 //        int distance = getVelocityMax() * hourInput;
-        int distance = hourInput; // Почему не могу вставить в формулу hourInput?
-        int fuelConsumptionForInputHour = distance / 100; // Почему не могу вставить в формулу переменную velosityMax?
+        int distance = hourInput; // Почему не могу вставить в формулу velosityMax?
+        int fuelConsumptionForInputHour = distance / 100; // Почему не могу вставить в формулу переменную fuelConsumption?
         System.out.println("Расстояние " + distance + " Потребление топлива " + fuelConsumptionForInputHour);
     }
 
