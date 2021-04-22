@@ -43,7 +43,8 @@ public class Main {
         System.out.println("------------------------------------------------------------------------------------------");
 
         InformationService informationService = new InformationService();
-        informationService.lightInfo(tr01, 2.1);
+//        informationService.lightInfo(tr01, 2.1);
+        informationService.tripInfo(tr01, 2.1);
 
 
 //

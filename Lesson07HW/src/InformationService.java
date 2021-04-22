@@ -29,6 +29,16 @@ public class InformationService implements Information {
 
     }
 
+    @Override
+    public void checkWeightCapacity(Transport transport, double weight) {
+
+    }
+
+    @Override
+    public void checkPassengerCapacity(Transport transport, int people) {
+
+    }
+
     private double calculateConsumedFuel(Car car, double time) {
         return getWay(car, time) * car.getFuelConsumption() / 100;
     }

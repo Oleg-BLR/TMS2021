@@ -47,7 +47,6 @@ class Car extends Ground {
     }
 
 
-    @Override
     public void tripInfo(Transport transport, double time) {
         Car car = (Car) transport;
         System.out.println("За время " + time + " ч, автомобиль " + car.getBrand() + " двигаясь с максимальной скоростью " + car.getVelocityMax() + " км/ч проедет "
