@@ -16,6 +16,34 @@ class MilitaryAir extends Air {
         count++;
     }
 
+    public static String getTransportTypeId() {
+        return TRANSPORT_TYPE_ID;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        MilitaryAir.count = count;
+    }
+
+    public boolean isCrewEjection() {
+        return crewEjection;
+    }
+
+    public void setCrewEjection(boolean crewEjection) {
+        this.crewEjection = crewEjection;
+    }
+
+    public int getMissileNumber() {
+        return missileNumber;
+    }
+
+    public void setMissileNumber(int missileNumber) {
+        this.missileNumber = missileNumber;
+    }
+
     public void displayInfo() {
         System.out.println("------------------------------------------------------------------------------------------");
         System.out.print("id - " + TRANSPORT_TYPE_ID + count);

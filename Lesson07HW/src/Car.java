@@ -1,7 +1,9 @@
 class Car extends Ground {
 
     private static final String TRANSPORT_TYPE_ID = "car";
+    //    final String TRANSPORT_TYPE_ID = "car";
     public static int count = 0;
+//    int count = 0;
 
     private String bodyType; //
     private int seatCapacity; // units
@@ -27,7 +29,7 @@ class Car extends Ground {
     }
 
     public String displayInfo2() {
-        var s = ("id - " + TRANSPORT_TYPE_ID + count); // String s = не работало. Java поиеняла String на var и все заработало, почему? Как это объяснить?
+        String s = ("id - " + TRANSPORT_TYPE_ID + count); // String s = не работало. Java поиеняла String на var и все заработало, почему? Как это объяснить?
         return s;
     }
 
@@ -36,12 +38,44 @@ class Car extends Ground {
         return kVtMethod;
     }
 
-    public static void distanceFuelconsumptionCalculation(int hourInput) { //
+    //    public static void distanceFuelconsumptionCalculation(int hourInput) { //
+    public void distanceFuelconsumptionCalculation(int hourInput) { //
 //        int distance = getVelocityMax() * hourInput;
-        int distance = hourInput; // Почему не могу вставить в формулу velosityMax?
-        int fuelConsumptionForInputHour = distance / 100; // Почему не могу вставить в формулу переменную fuelConsumption?
+        int distance = hourInput * getVelocityMax(); // Почему не могу вставить в формулу velosityMax?
+        int fuelConsumptionForInputHour = distance / 100 * getFuelConsumption(); // Почему не могу вставить в формулу переменную fuelConsumption?
         System.out.println("Расстояние " + distance + " Потребление топлива " + fuelConsumptionForInputHour);
     }
+
+
+    @Override
+    public void tripInfo(Transport transport, double time) {
+        Car car = (Car) transport;
+        System.out.println("За время " + time + " ч, автомобиль " + car.getBrand() + " двигаясь с максимальной скоростью " + car.getVelocityMax() + " км/ч проедет "
+                + getWay(car, time) + " км и израсходует " + calculateConsumedFuel(car, time) + " литров топлива.");
+
+    }
+
+    private double calculateConsumedFuel(Car car, double time) {
+        return getWay(car, time) * car.getFuelConsumption() / 100;
+    }
+
+    private double getWay(Car car, double time) {
+        return car.getVelocityMax() * time;
+    }
+
+
+//    public void info(double time) {
+//        System.out.println("За время " + time + " ч, автомобиль " + getBrand() + " двигаясь с максимальной скоростью " + getMaxSpeed() + " км/ч проедет "
+//                + getWay(time) + " км и израсходует " + calculateConsumedFuel(time) + " литров топлива.");
+//    }
+//
+//    private double calculateConsumedFuel(double time) {
+//        return getWay(time) * getFuelConsumption() / 100;
+//    }
+//
+//    private double getWay(double time) {
+//        return getVelocityMax() * time;
+//    }
 
 
 }

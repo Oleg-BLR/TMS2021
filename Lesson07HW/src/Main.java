@@ -37,7 +37,15 @@ public class Main {
         System.out.println("Введите количество часов езды легкового автомобиля");
         Scanner scanner = new Scanner(System.in);
         int hourInput = scanner.nextInt();
-        Car.distanceFuelconsumptionCalculation(hourInput);
+        tr01.distanceFuelconsumptionCalculation(hourInput);
+
+        System.out.println();
+        System.out.println("------------------------------------------------------------------------------------------");
+
+        InformationService informationService = new InformationService();
+        informationService.lightInfo(tr01, 2.1);
+
+
 //
 //    }
     }

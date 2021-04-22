@@ -10,6 +10,22 @@ class Ground extends Transport {
         this.fuelConsumption = fuelConsumption;
     }
 
+    public int getWeelsNumber() {
+        return weelsNumber;
+    }
+
+    public void setWeelsNumber(int weelsNumber) {
+        this.weelsNumber = weelsNumber;
+    }
+
+    public int getFuelConsumption() {
+        return fuelConsumption;
+    }
+
+    public void setFuelConsumption(int fuelConsumption) {
+        this.fuelConsumption = fuelConsumption;
+    }
+
     public void displayInfo() {
         super.displayInfo();
         System.out.println("; Кол-во колес, шт: " + weelsNumber + "; Расход топлива, л/100км: " + fuelConsumption);
