@@ -44,15 +44,15 @@ public class Car {
         Random random = new Random();
         int randomNumber = random.nextInt(21);
         System.out.println("Случайное число: " + randomNumber);
-        if (!(brand.equals(null)) || speed != null || cost != null) { // ошибка
-//        if (brand != null || speed != null || cost != null) { // ошибка
+        if (!(brand.equals(null)) || speed != 0 || cost != 0) { // ошибка Cannot invoke "String.equals(Object)" because "this.brand" is null
+            // Что делать? Не попадает в "неверные данные"
             if (randomNumber % 2 != 0) {
-                System.out.println("Автомобиль: " + brand + " завелся!");
+                System.out.println("Автомобиль: " + brand + " завелся!, прописано в start Car");
             } else {
-                throw new StartException();
+                throw new StartException(brand + " не смог завестись, прописано в start Car");
             }
         } else {
-            throw new NullDataException();
+            throw new NullDataException("неверные данные");
         }
     }
 }

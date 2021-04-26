@@ -14,11 +14,17 @@ public class Main {
             System.out.println("Заводим автомобиль " + cars[i].getBrand() + " ....");
             try {
                 cars[i].start();
-            } catch (StartException | NullDataException e) {
-                System.out.println(e);
+            } catch (NullDataException message) {
+                System.out.println("вывод message в catch NullDataException:::___ " + message.getMessage());
+            } catch (StartException message2) {
+                System.out.println("вывод message2 в catch Start Exception:::___ " + message2);
+                System.out.println("вывод результата исключения Start Exception:::___ " + message2.getMessage());
+                System.out.println("вывод причины исключения Start Exception:::___ " + message2.getCause()); // не выводит первую часть строки из просто message2
             }
             System.out.println();
         }
+
+//        System.out.println("Отдельные запуски");
 //        car02.start();
 //        car03.start();
 //        car04.start();
