@@ -1,7 +1,6 @@
 package robot;
 
 import robot.hands.IHand;
-import robot.heads.IHead;
 import robot.legs.ILeg;
 
 public class Robot implements IRobot {
@@ -46,8 +45,8 @@ public class Robot implements IRobot {
         leg.step();
     }
 
-    @Override
-    public int getPrice() {
-        return 0;
+    public void getPrice() {
+
     }
+
 }
