@@ -7,8 +7,8 @@ public class SamsungHand implements IHand {
         this.price = price;
     }
 
-    public SamsungHand() {
-    }
+//    public SamsungHand() {
+//    }
 
     @Override
     public void upHand() {
