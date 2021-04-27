@@ -19,5 +19,8 @@ public class ToshibaHead implements IHead {
         return price;
     }
 
-
+    @Override
+    public String getName() {
+        return "Toshiba head";
+    }
 }

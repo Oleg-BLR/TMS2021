@@ -48,7 +48,25 @@ public class Robot implements IRobot {
 
     @Override
     public int getPrice() {
-        int price = head.getPrice() + hand.getPrice() + leg.getPrice();
+        int price = head.getPrice() + 2 * hand.getPrice() + 2 * leg.getPrice();
         return price;
+    }
+
+//    @Override                             // это генерит сам
+//    public String toString() {
+//        return "Robot{" +
+//                "head=" + head +
+//                ", hand=" + hand +
+//                ", leg=" + leg +
+//                '}';
+//    }
+
+    @Override                                // а правильно это, почему?
+    public String toString() {
+        return "Robot{" +
+                "head=" + head.getName() +
+                ", hand=" + hand.getName() +
+                ", leg=" + leg.getName() +
+                '}';
     }
 }
