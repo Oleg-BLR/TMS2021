@@ -26,17 +26,17 @@ public class Run {
         */
         IHead[] head = new IHead[3];
         head[0] = new SamsungHead(51);
-        head[1] = new ToshibaHead(41);
+        head[1] = new ToshibaHead(44);
         head[2] = new SonyHead(60);
 
         IHand[] hand = new IHand[3];
-        hand[0] = new SonyHand(33);
+        hand[0] = new SonyHand(35);
         hand[1] = new SamsungHand(40);
         hand[2] = new ToshibaHand(36);
 
         ILeg[] leg = new ILeg[3];
         leg[0] = new SamsungLeg(43);
-        leg[1] = new SonyLeg(40);
+        leg[1] = new SonyLeg(44);
         leg[2] = new ToshibaLeg(37);
 
         IRobot[] robot = new IRobot[3];
@@ -53,6 +53,7 @@ public class Run {
             System.out.println("     Стоимость робота № " + (i + 1) + ": " + robot[i].getPrice());
             System.out.println();
             if (robot[i].getPrice() > maxPrice) {
+                maxPrice = robot[i].getPrice();
                 iMax = i;
             }
         }
