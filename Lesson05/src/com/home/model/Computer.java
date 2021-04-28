@@ -12,7 +12,7 @@ public class Computer {
 
 
     void description() {
-        System.out.println("Процессор - "processor + ", Оперативная память - " + ram + ", Жесткий диск - " + hdd + ", Ресурс - " + operationLifeCicles);
+        System.out.println("Процессор - "+ processor + ", Оперативная память - " + ram + ", Жесткий диск - " + hdd + ", Ресурс - " + operationLifeCicles);
     }
 
     private void on() {
@@ -23,7 +23,7 @@ public class Computer {
         Random randZeroOrOne = new Random();
         while (operationLifeCicles < this.operationLifeCicles) {
             while (this.workPc) {
-                if (myZeroOrOne == randZeroOrOne) {
+                if (myZeroOrOne == randZeroOrOne.nextInt(11)) {
                     off();
                 } else {
                     System.out.println("Компьютер сгорел!");
@@ -38,7 +38,7 @@ public class Computer {
         Scanner scan = new Scanner(System.in);
         int myZeroOrOne = scan.nextInt();
         Random randZeroOrOne = new Random();
-        if (myZeroOrOne == randZeroOrOne) {
+        if (myZeroOrOne == randZeroOrOne.nextInt(11)) {
             on();
         } else {
             System.out.println("Компьютер сгорел!");
